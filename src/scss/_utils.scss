@@ -1,0 +1,15 @@
+// Flex
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--down {
+        @extend .flex;
+        flex-direction: column;
+    }
+}
+
+// Positioning
+.absolute { position: absolute; }
+.relative { position: relative; }
