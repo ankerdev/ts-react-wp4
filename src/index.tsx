@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { hot } from 'react-hot-loader';
-import { Home } from 'Scenes';
-
-const App = hot(module)(Home);
+import { Home } from 'scenes';
 
 render(
   <Home country="Norway" />,

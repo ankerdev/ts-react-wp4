@@ -75,10 +75,7 @@ module.exports = {
     })
   ],
   resolve: {
-    alias: {
-      Components: path.resolve(__dirname, './src/ts/components'),
-      Scenes: path.resolve(__dirname, './src/ts/scenes')
-    },
+    modules: ['node_modules', './src/ts'],
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   }
 };
