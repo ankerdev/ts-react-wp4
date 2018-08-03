@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": "./src/ts",
+        "experimentalDecorators": true,
         "jsx": "react",
         "module": "commonjs",
         "noImplicitAny": true,

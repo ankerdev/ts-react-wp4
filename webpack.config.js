@@ -46,16 +46,36 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif|svg|woff|woff2)$/,
+        test: /\.(png|jpg|gif|woff2?)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash:12].[ext]'
+              name: 'assets/[name].[hash:12].[ext]'
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.svg$/i,
+        rules: [
+          {
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: 'assets/[name].[hash:12].[ext]'
+                }
+              }
+            ],
+            issuer: /\.scss$/i,
+          },
+          {
+            use: ['raw-loader'],
+            issuer: /\.(tsx?|html)$/i
+          }
+        ]
+      },
     ]
   },
   output: {
