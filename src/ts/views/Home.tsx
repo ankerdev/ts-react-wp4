@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Country } from 'components';
-import { todoStore } from 'stores';
+import { Country } from '../components';
+import { todoStore } from '../stores';
 
 interface IProps {
   country: string;

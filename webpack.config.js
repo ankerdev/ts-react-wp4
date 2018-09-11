@@ -76,6 +76,18 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: {
+              minimize: true,
+              interpolate: true
+            }
+          }
+        ]
+      }
     ]
   },
   output: {
@@ -95,7 +107,6 @@ module.exports = {
     })
   ],
   resolve: {
-    modules: ['node_modules', './src/ts'],
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   }
 };

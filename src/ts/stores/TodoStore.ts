@@ -39,7 +39,10 @@ class TodoStore {
 
   @action
   completeTodo(completedTodo: Todo) {
-    this.todoList.find((todo) => todo === completedTodo).complete = true;
+    const foundTodo: Todo|undefined = this.todoList.find((todo) => todo === completedTodo);
+    if (foundTodo !== undefined) {
+      foundTodo.complete = true;
+    }
   }
 }
 
