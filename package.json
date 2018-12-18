@@ -1,44 +1,44 @@
 {
-  "name": "wp4setup",
+  "name": "ts-react-wp4",
   "version": "1.0.0",
   "description": "A webpack 4 setup by 🇳🇴",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jonas Anker Jahr",
   "license": "ISC",
   "dependencies": {
-    "@types/react": "^16.4.18",
-    "@types/react-dom": "^16.0.9",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
     "dotenv-webpack": "^1.5.7",
-    "mobx": "^5.5.1",
-    "mobx-react": "^5.3.2",
+    "mobx": "^5.8.0",
+    "mobx-react": "^5.4.3",
     "normalize-scss": "^7.0.1",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
   "devDependencies": {
-    "autoprefixer": "^9.2.1",
-    "clean-webpack-plugin": "^0.1.19",
-    "css-loader": "^1.0.0",
+    "autoprefixer": "^9.4.3",
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^2.0.1",
     "file-loader": "^2.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "^4.9.4",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
-    "raw-loader": "^0.5.1",
+    "raw-loader": "^1.0.0",
     "resolve-url-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
-    "ts-loader": "^5.2.2",
-    "typescript": "^3.1.3",
-    "webpack": "^4.21.0",
+    "ts-loader": "^5.3.1",
+    "typescript": "^3.2.2",
+    "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-server": "^3.1.10"
   }
 }
