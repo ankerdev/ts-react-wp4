@@ -12,23 +12,21 @@ interface IState {
 }
 
 @observer
-export class Home extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
-    super(props);
-    this.state = { name: 'Jonas' };
-  }
+export class Home extends React.Component<IProps> {
+  state: IState = {
+    name: 'Jonas'
+  };
 
   render() {
-    const { country, name } = {...this.props, ...this.state};
+    const { name } = { ...this.state };
 
     return (
       <main className="main flex--down">
         <h1>
-          Webpack 4 setup by <Country />
+          Webpack 4 setup by {name} <Country />
         </h1>
         <p>{todoStore.numberOfTasks}</p>
         <button onClick={() => todoStore.addTodo('yooo')}>Add</button>
-        <p>{name}, {country}</p>
       </main>
     );
   }

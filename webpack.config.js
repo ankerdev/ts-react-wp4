@@ -1,10 +1,11 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-const devMode = process.env.npm_lifecycle_script.indexOf('development') !== -1;
+const devMode = process.argv.some(arg => arg.includes('development'));
+const srcDir = './src';
 
 module.exports = {
   devServer: {
@@ -14,10 +15,9 @@ module.exports = {
     port: 2222
   },
   devtool: 'source-map',
-  entry: [
-    './src/index.tsx',
-    './src/scss/app.scss'
-  ],
+  entry: {
+    index: `${srcDir}/index.tsx`,
+  },
   module: {
     rules: [
       {
@@ -26,9 +26,9 @@ module.exports = {
         loader: 'ts-loader'
       },
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
-        loader: "source-map-loader"
+        loader: 'source-map-loader'
       },
       {
         test: /\.scss$/,
@@ -38,7 +38,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
+              importLoaders: 2
             }
           },
           'postcss-loader',
@@ -95,12 +95,12 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
   },
   plugins: [
-    new CleanWebpackPlugin('dist'),
+    new CleanWebpackPlugin(),
     new Dotenv(),
     new HTMLWebpackPlugin({
       filename: 'index.html',
       inject: 'body',
-      template: './src/index.html'
+      template: `${srcDir}/index.html`
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash:12].css'
