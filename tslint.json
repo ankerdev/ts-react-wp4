@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "max-line-length": {
+      "options": [
+        140
+      ]
+    },
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter"
+    ],
+    "variable-name": [
+      true,
+      "allow-pascal-case",
+      "ban-keywords",
+      "check-format"
+    ]
+  }
+}

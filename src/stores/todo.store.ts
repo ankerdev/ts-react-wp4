@@ -1,8 +1,8 @@
 import {
-  observable,
   action,
-  reaction,
   computed,
+  observable,
+  reaction,
 } from 'mobx';
 
 interface ITodo {
@@ -15,13 +15,13 @@ class TodoStore {
 
   constructor() {
     reaction(
-      () => this.todoList.filter((todo) => !todo.complete),
+      () => this.todoList.filter(todo => !todo.complete),
       (incompletedTasks) => {
         if (incompletedTasks.length > 5) {
           alert(`You've got ${incompletedTasks.length} incompleted tasks`);
         }
-      }
-    )
+      },
+    );
   }
 
   @computed
@@ -30,7 +30,7 @@ class TodoStore {
   }
 
   @action
-  addTodo(task: string) {
+  addTodo(task: string): void {
     this.todoList.push({
       task,
       complete: false,
@@ -38,8 +38,8 @@ class TodoStore {
   }
 
   @action
-  completeTodo(completedTodo: ITodo) {
-    const foundTodo: ITodo | undefined = this.todoList.find((todo) => todo === completedTodo);
+  completeTodo(completedTodo: ITodo): void {
+    const foundTodo: ITodo | undefined = this.todoList.find(todo => todo === completedTodo);
     if (foundTodo) {
       foundTodo.complete = true;
     }

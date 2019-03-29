@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { observer } from 'mobx-react';
+import * as React from 'react';
 import { Country } from '../../components';
 import { todoStore } from '../../stores';
 import * as styles from './home.view.scss';
@@ -14,9 +14,11 @@ interface IState {
 
 @observer
 export class Home extends React.Component<IProps> {
-  state: IState = { name: 'Jonas' };
+  state: IState = {
+    name: 'Jonas',
+  };
 
-  render() {
+  render(): JSX.Element {
     const { name } = this.state;
 
     return (

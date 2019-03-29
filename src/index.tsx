@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { Home } from './views';
 import './styles/_all.scss';
+import { Home } from './views';
 
 render(
   <Home country="Norway" />,
