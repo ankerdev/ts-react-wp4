@@ -6,6 +6,28 @@ const path = require('path');
 
 const devMode = process.argv.some(arg => arg.includes('development'));
 const srcDir = './src';
+const scssModule = /\.(component|module|view)\.scss$/;
+
+const cssLoaderArray = (modules = false) => [
+  devMode
+    ? 'style-loader'
+    : MiniCssExtractPlugin.loader,
+  {
+    loader: 'css-loader',
+    options: {
+      importLoaders: 2,
+      ...(modules
+        ? {
+          modules,
+          localIdentName: '[local]_[hash:base64:8]'
+        }
+        : {}
+      )
+    }
+  },
+  'postcss-loader',
+  'sass-loader'
+]
 
 module.exports = {
   devServer: {
@@ -32,18 +54,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude: scssModule,
+        use: cssLoaderArray()
+      },
+      {
+        test: scssModule,
         exclude: /node_modules/,
-        use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2
-            }
-          },
-          'postcss-loader',
-          'sass-loader'
-        ]
+        use: cssLoaderArray(true)
       },
       {
         test: /\.(png|jpg|gif|woff2?|ttf|eot)$/,

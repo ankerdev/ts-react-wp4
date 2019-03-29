@@ -5,13 +5,13 @@ import {
   computed,
 } from 'mobx';
 
-interface Todo {
+interface ITodo {
   task: string;
   complete: boolean;
 }
 
 class TodoStore {
-  @observable todoList: Todo[] = [];
+  @observable todoList: ITodo[] = [];
 
   constructor() {
     reaction(
@@ -38,9 +38,9 @@ class TodoStore {
   }
 
   @action
-  completeTodo(completedTodo: Todo) {
-    const foundTodo: Todo|undefined = this.todoList.find((todo) => todo === completedTodo);
-    if (foundTodo !== undefined) {
+  completeTodo(completedTodo: ITodo) {
+    const foundTodo: ITodo | undefined = this.todoList.find((todo) => todo === completedTodo);
+    if (foundTodo) {
       foundTodo.complete = true;
     }
   }

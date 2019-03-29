@@ -11,5 +11,8 @@
 }
 
 // Positioning
-.absolute { position: absolute; }
-.relative { position: relative; }
+.position {
+    &-absolute { position: absolute; }
+    &-relative { position: relative; }
+}
+
