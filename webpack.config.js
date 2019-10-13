@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -18,8 +18,9 @@ const cssLoaderArray = (modules = false) => [
       importLoaders: 2,
       ...(modules
         ? {
-          modules,
-          localIdentName: '[local]_[hash:base64:8]',
+          modules: {
+            localIdentName: '[local]_[hash:base64:8]',
+          },
         } : {}
       ),
     }
