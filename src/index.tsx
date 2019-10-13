@@ -4,6 +4,6 @@ import './styles/_all.scss';
 import { Home } from './views';
 
 render(
-  <Home country="Norway" />,
+  <Home emoji="🦄" />,
   document.getElementById('app'),
 );
