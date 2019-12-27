@@ -36,7 +36,6 @@ module.exports = {
     inline: true,
     port: 2222,
   },
-  devtool: 'source-map',
   entry: {
     index: `${srcDir}/index.tsx`,
   },
@@ -131,4 +130,5 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
+  ...(devMode && { devtool: 'source-map', })
 };
